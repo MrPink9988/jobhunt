@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gastronomy job platform for Hamburg-based professionals" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>GastroConnect</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    header, section {
+      padding: 4rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    nav a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      background: linear-gradient(to right, #e6ecf0, #ffffff);
+    }
+    .team img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 8px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .contact-form button {
+      background-color: #1a4b72;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.875rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#references">References</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <h1>Connecting Talent in Gastronomy</h1>
+    <p>Your trusted Hamburg-based recruiting partner</p>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Let’s Talk</button>
+  </header>
+
+  <section id="services">
+    <h2>What We Offer</h2>
+    <ul>
+      <li>Reliable candidate sourcing for gastronomy roles</li>
+      <li>Pre-screened and qualified job seekers</li>
+      <li>Fast matching for urgent staffing needs</li>
+      <li>Support for employers and applicants</li>
+    </ul>
+  </section>
+
+  <section id="references">
+    <h2>Our Partners</h2>
+    <img src="https://picsum.photos/400/100" alt="Partner logos placeholder" />
+  </section>
+
+  <section id="about">
+    <h2>Meet the Team</h2>
+    <div class="team">
+      <figure>
+        <img src="partner_manager.jpg" alt="Partner Manager">
+        <figcaption>Maria López – Partner Manager</figcaption>
+      </figure>
+      <figure>
+        <img src="partner.jpg" alt="Partner">
+        <figcaption>Thomas Berg – Partner</figcaption>
+      </figure>
+      <figure>
+        <img src="ceo.jpg" alt="CEO & Founder">
+        <figcaption>Anna Fischer – CEO & Founder</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>Email: contact@gastroconnect.de<br>Phone: +49 40 12345678</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GastroConnect. All rights reserved.</p>
+    <p>This site uses cookies. [GDPR placeholder]</p>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker Registered'));
+    }
+  </script>
+</body>
+</html>
