@@ -1,194 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gastronomy job platform for Hamburg-based professionals" />
-  <link rel="manifest" href="manifest.json" />
+  <meta name="description" content="Stammtisch Personalvermittlung für Gastronomie" />
+  <title>Stammtisch Personalvermittlung</title>
   <link rel="stylesheet" href="styles.css" />
-  <title>GastroConnect</title>
-  <link rel="icon" href="favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
+      background-color: #f9f6f2;
+      color: #111;
     }
     header, section {
-      padding: 4rem 1rem;
-      max-width: 1000px;
+      padding: 2rem 1rem;
+      max-width: 800px;
       margin: auto;
     }
-    nav {
-      position: sticky;
-      top: 0;
-      background: white;
-      display: flex;
-      justify-content: space-around;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    nav a {
-      text-decoration: none;
-      color: #1a1a1a;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #1a4b72;
-    }
     .hero {
-      position: relative;
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      color: white;
-      overflow: hidden;
+      padding: 4rem 1rem;
     }
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-    .hero-overlay {
-      background: rgba(0, 32, 64, 0.5);
-      padding: 2rem;
-      border-radius: 8px;
-    }
-    .team img {
-      width: 100%;
-      max-width: 200px;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-    .team img:hover {
-      transform: scale(1.05);
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
+    .hero img {
+      width: 120px;
       margin-bottom: 1rem;
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
     }
-    .contact-form button {
-      background-color: #1a4b72;
-      color: white;
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .hero button {
       padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
+      margin: 0.5rem;
+      border: 1px solid #111;
+      background: none;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-    .contact-form button:hover {
-      background-color: #163a5a;
+    .highlight-section {
+      background-color: #f0ede8;
+      padding: 2.5rem 1rem;
     }
-    .floating-cta {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #1a4b72;
-      color: white;
-      padding: 1rem;
-      border-radius: 50px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      cursor: pointer;
-      z-index: 999;
+    .split-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 1rem;
     }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.875rem;
-      color: #555;
+    .split {
+      background: #fff;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    ul {
+      padding-left: 1rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    @media (min-width: 768px) {
+      .split-section {
+        flex-direction: row;
+      }
+      .split {
+        width: 50%;
+      }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#references">References</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
   <header class="hero">
-    <video autoplay muted loop>
-      <source src="hero-kitchen.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-overlay">
-      <h1>Connecting Talent in Gastronomy</h1>
-      <p>Your trusted Hamburg-based recruiting partner</p>
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Let’s Talk</button>
-    </div>
+    <img src="logo.png" alt="Stammtisch Logo">
+    <h1>STAMMTISCH PERSONALVERMITTLUNG</h1>
+    <p>Verlässliche Gastro-Vermittlung mit Handschlagqualität.</p>
+    <button>Mitarbeiter finden</button>
+    <button>Jetzt bewerben</button>
   </header>
 
-  <section id="services">
-    <h2>What We Offer</h2>
-    <ul>
-      <li>Reliable candidate sourcing for gastronomy roles</li>
-      <li>Pre-screened and qualified job seekers</li>
-      <li>Fast matching for urgent staffing needs</li>
-      <li>Support for employers and applicants</li>
-    </ul>
+  <section class="highlight-section">
+    <h2>Über uns / Unsere Haltung</h2>
+    <p>Stammtisch steht für persönliche Vermittlung auf Augenhöhe. Keine Zeitarbeit, kein Versprechen ohne Substanz – nur ehrliches Matching zwischen Gastronom und Gastronom.</p>
   </section>
 
-  <section id="references">
-    <h2>Our Partners</h2>
-    <img src="https://picsum.photos/400/100" alt="Partner logos placeholder" />
-  </section>
-
-  <section id="about">
-    <h2>Meet the Team</h2>
-    <div class="team">
-      <figure>
-        <img src="partner_manager.png" alt="Partner Manager">
-        <figcaption>Maria López – Partner Manager</figcaption>
-      </figure>
-      <figure>
-        <img src="partner.png" alt="Partner">
-        <figcaption>Thomas Berg – Partner</figcaption>
-      </figure>
-      <figure>
-        <img src="ceo.png" alt="CEO & Founder">
-        <figcaption>Anna Fischer – CEO & Founder</figcaption>
-      </figure>
+  <section class="split-section">
+    <div class="split">
+      <h2>Für Arbeitgeber</h2>
+      <p>Sie zahlen nur bei erfolgreicher Vermittlung. Kein Risiko. Kein Leasingvertrag.</p>
+      <ul>
+        <li>Vorauswahl & persönliche Betreuung</li>
+        <li>Nur qualifizierte Bewerber</li>
+        <li>Vermittlung in Festanstellung</li>
+      </ul>
+      <button>Erstkontakt aufnehmen</button>
+    </div>
+    <div class="split">
+      <h2>Für Bewerber</h2>
+      <p>Arbeiten, wo du hingehörst – Du bewirbst dich bei uns, wir kümmern uns persönlich. Keine Massenvermittlung. Kein Systemdruck.</p>
+      <button>Initiativbewerbung senden</button>
     </div>
   </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    <p>Email: contact@gastroconnect.de<br>Phone: +49 40 12345678</p>
-  </section>
-
-  <div class="floating-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-    Find Talent
-  </div>
-
-  <footer>
-    <p>&copy; 2025 GastroConnect. All rights reserved.</p>
-    <p>This site uses cookies. [GDPR placeholder]</p>
-  </footer>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('Service Worker Registered'));
-    }
-  </script>
 </body>
 </html>
