@@ -3,96 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stammtisch Personalvermittlung für Gastronomie" />
   <title>Stammtisch Personalvermittlung</title>
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
-    body {
+    :root {
+      --bg-main: #f9f6f2;
+      --bg-highlight: #f0ede8;
+      --color-text: #112244;
+      --color-border: #ccc;
+      --color-accent: #112244;
+    }
+
+    * {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f9f6f2;
-      color: #111;
+      padding: 0;
+      box-sizing: border-box;
     }
-    header, section {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
+
+    body {
+      font-family: Georgia, serif;
+      background-color: var(--bg-main);
+      color: var(--color-text);
+      line-height: 1.6;
+      padding-bottom: 4rem;
     }
-    .hero {
+
+    /* NAVBAR */
+    .navbar {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 10;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: var(--color-text);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #445577;
+    }
+
+    .navbar img {
+      height: 60px;
+    }
+
+    .carousel-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .carousel-container .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-container .slide.active {
+      opacity: 1;
+    }
+
+    .carousel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 4rem 1rem;
+      padding: 2rem;
+      z-index: 2;
+      color: var(--color-text);
     }
-    .hero img {
+
+    .hero-overlay img {
       width: 120px;
       margin-bottom: 1rem;
     }
-    .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+
+    .title-main {
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 0.05rem;
     }
-    .hero p {
-      margin-bottom: 1.5rem;
+
+    .title-sub {
       font-size: 1.1rem;
+      margin-bottom: 1rem;
     }
-    .hero button {
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      border: 1px solid #111;
-      background: none;
-      cursor: pointer;
+
+    .hero-overlay p {
+      font-size: 1.125rem;
+      margin: 1rem 0;
     }
-    .highlight-section {
-      background-color: #f0ede8;
-      padding: 2.5rem 1rem;
-    }
-    .split-section {
+
+    .hero-buttons {
       display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 2rem 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
     }
+
+    .hero-buttons button {
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--color-accent);
+      background: transparent;
+      color: var(--color-accent);
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .hero-buttons button:hover {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    header, section {
+      padding: 3rem 1.5rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .highlight-section {
+      background-color: var(--bg-highlight);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .highlight-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .split-section {
+      display: grid;
+      gap: 2rem;
+    }
+
     .split {
       background: #fff;
-      padding: 1.5rem;
-      border: 1px solid #ddd;
+      padding: 2rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
-    h2 {
-      margin-top: 0;
+
+    .split h2 {
       font-size: 1.5rem;
+      margin-bottom: 0.75rem;
     }
-    ul {
+
+    .split ul {
       padding-left: 1rem;
+      list-style: disc;
     }
-    ul li {
+
+    .split ul li {
       margin-bottom: 0.5rem;
     }
+
+    .split button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--color-accent);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .split button:hover {
+      background: var(--color-accent);
+      color: white;
+    }
+
     @media (min-width: 768px) {
       .split-section {
-        flex-direction: row;
-      }
-      .split {
-        width: 50%;
+        grid-template-columns: 1fr 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <img src="logo.png" alt="Stammtisch Logo">
-    <h1>STAMMTISCH PERSONALVERMITTLUNG</h1>
-    <p>Verlässliche Gastro-Vermittlung mit Handschlagqualität.</p>
-    <button>Mitarbeiter finden</button>
-    <button>Jetzt bewerben</button>
-  </header>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">Über uns</a></li>
+    </ul>
+    <img src="logo.png" alt="Logo" />
+    <ul>
+      <li><a href="#employers">Arbeitgeber</a></li>
+      <li><a href="#applicants">Bewerber</a></li>
+    </ul>
+  </nav>
 
-  <section class="highlight-section">
+  <div class="carousel-container">
+    <img src="chef.png" class="slide active" alt="Koch in Restaurantküche" />
+    <img src="service.png" class="slide" alt="Servicekraft" />
+    <img src="restaurantmanger.png" class="slide" alt="Restaurantmanager" />
+    <img src="barkeeper.png" class="slide" alt="Barkeeperin in der Bar" />
+
+    <div class="carousel-overlay"></div>
+
+    <div class="hero-overlay">
+      <div class="title-main">STAMMTISCH</div>
+      <div class="title-sub">PERSONALMAKLER</div>
+      <p>Verlässliche Gastro-Vermittlung mit Handschlagqualität.</p>
+      <div class="hero-buttons">
+        <button>Mitarbeiter finden</button>
+        <button>Jetzt bewerben</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="highlight-section" id="about">
     <h2>Über uns / Unsere Haltung</h2>
     <p>Stammtisch steht für persönliche Vermittlung auf Augenhöhe. Keine Zeitarbeit, kein Versprechen ohne Substanz – nur ehrliches Matching zwischen Gastronom und Gastronom.</p>
   </section>
 
   <section class="split-section">
-    <div class="split">
+    <div class="split" id="employers">
       <h2>Für Arbeitgeber</h2>
       <p>Sie zahlen nur bei erfolgreicher Vermittlung. Kein Risiko. Kein Leasingvertrag.</p>
       <ul>
@@ -102,11 +265,24 @@
       </ul>
       <button>Erstkontakt aufnehmen</button>
     </div>
-    <div class="split">
+    <div class="split" id="applicants">
       <h2>Für Bewerber</h2>
       <p>Arbeiten, wo du hingehörst – Du bewirbst dich bei uns, wir kümmern uns persönlich. Keine Massenvermittlung. Kein Systemdruck.</p>
       <button>Initiativbewerbung senden</button>
     </div>
   </section>
+
+  <script>
+    (function () {
+      const slides = document.querySelectorAll('.slide');
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 4000);
+    })();
+  </script>
+
 </body>
 </html>
